@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: app-config
+  name: app-file-config
 data:
-  ENV: xxxx
+  ENV: prod
   LOG_LEVEL: INFO
