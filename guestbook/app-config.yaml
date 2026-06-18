@@ -3,5 +3,5 @@ kind: ConfigMap
 metadata:
   name: app-config
 data:
-  ENV: prod
+  ENV: test
   LOG_LEVEL: INFO
