@@ -16,5 +16,15 @@ spec:
       containers:
         - image: gcr.io/google-samples/gb-frontend:v5
           name: guestbook-ui
+
+          volumeMounts:
+            - name: app-config-volume
+              mountPath: /config
+
           ports:
             - containerPort: 80
+
+      volumes:
+        - name: app-config-volume
+          configMap:
+            name: app-file-config
