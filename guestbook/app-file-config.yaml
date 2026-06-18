@@ -3,5 +3,5 @@ kind: ConfigMap
 metadata:
   name: app-file-config
 data:
-  ENV: xxxx
+  ENV: hello-gitops
   LOG_LEVEL: INFO
