@@ -17,6 +17,15 @@ spec:
         - image: gcr.io/google-samples/gb-frontend:v5
           name: guestbook-ui
 
+          volumeMounts:
+          - name: secret-volume
+            mountPath: /etc/secrets
+            readOnly: true
+
+           volumes:
+           - name: secret-volume
+             secret:
+               secretName: db-secret 
           env:
           - name: DB_USER
             valueFrom:
