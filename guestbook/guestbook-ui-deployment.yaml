@@ -29,14 +29,7 @@ spec:
               secretKeyRef:
                 name: db-secret
                 key: password
-          volumeMounts:
-            - name: app-config-volume
-              mountPath: /config
+        
 
           ports:
             - containerPort: 80
-
-      volumes:
-        - name: app-config-volume
-          configMap:
-            name: app-file-config
