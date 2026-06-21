@@ -17,6 +17,18 @@ spec:
         - image: gcr.io/google-samples/gb-frontend:v5
           name: guestbook-ui
 
+          env:
+          - name: DB_USER
+            valueFrom:
+              secretKeyRef:
+                name: db-secret
+                key: username
+
+          - name: DB_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: db-secret
+                key: password
           volumeMounts:
             - name: app-config-volume
               mountPath: /config
