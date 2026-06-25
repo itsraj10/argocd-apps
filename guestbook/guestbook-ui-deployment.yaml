@@ -42,7 +42,7 @@ spec:
 
           livenessProbe:
             httpGet:
-              path: /wrong-path
+              path: /
               port: 80
             initialDelaySeconds: 15
             periodSeconds: 5
