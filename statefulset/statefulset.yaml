@@ -20,24 +20,23 @@ spec:
 
     spec:
       containers:
-      - name: mysql
-        image: nginx:stable-alpine
+        - name: mysql
+          image: nginx:stable-alpine
 
-        ports:
-        - containerPort: 80
+          ports:
+            - containerPort: 80
 
-        volumeMounts:
-        - name: mysql-storage
-          mountPath: /usr/share/nginx/html
+          volumeMounts:
+            - name: mysql-storage
+              mountPath: /usr/share/nginx/html
 
   volumeClaimTemplates:
-  - metadata:
-      name: mysql-storage
+    - metadata:
+        name: mysql-storage
+      spec:
+        accessModes:
+          - ReadWriteOnce
 
-  spec:
-    accessModes:
-    - ReadWriteOnce
-
-    resources:
-      requests:
-        storage: 1Gi        
+        resources:
+          requests:
+            storage: 1Gi
