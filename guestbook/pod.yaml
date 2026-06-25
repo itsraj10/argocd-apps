@@ -18,4 +18,5 @@ spec:
 
   volumes:
   - name: storage
-    emptyDir: {}
+    persistentVolumeClaim:
+      claimName: demo-pvc
