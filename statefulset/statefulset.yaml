@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
         - name: mysql
-          image: nginx:stable-alpine
+          image: nginx:1.29-alpine
 
           ports:
             - containerPort: 80
