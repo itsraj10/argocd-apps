@@ -1,7 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: app-file-config
-data:
-  ENV: hello-gitops
-  LOG_LEVEL: INFO
