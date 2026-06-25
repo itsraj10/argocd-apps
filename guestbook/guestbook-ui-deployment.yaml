@@ -27,5 +27,12 @@ spec:
             failureThreshold: 30
             periodSeconds: 10
 
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 5
+            periodSeconds: 5
+
           ports:
             - containerPort: 80
