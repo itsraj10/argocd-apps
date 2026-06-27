@@ -6,7 +6,7 @@ metadata:
   namespace: jobs
 
 spec:
-  schedule: "*/2 * * * *"
+  schedule: "0 0* * * *"
 
   jobTemplate:
     spec:
