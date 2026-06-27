@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: affinity-demo
+  namespace: default
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: affinity-demo
+
+  template:
+    metadata:
+      labels:
+        app: affinity-demo
+
+    spec:
+
+      affinity:
+        nodeAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            preference:
+              matchExpressions:
+              - key: kubernetes.io/hostname
+                operator: In
+                values:
+                - argocd-lab-worker
+
+      containers:
+      - name: nginx
+        image: nginx:stable-alpine
+
+        ports:
+        - containerPort: 80
