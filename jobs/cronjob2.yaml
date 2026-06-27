@@ -15,7 +15,7 @@ spec:
   concurrencyPolicy: Forbid
 
   # Pause/Resume the CronJob
-  suspend: false
+  suspend: true
 
   # Keep only last 3 successful Jobs
   successfulJobsHistoryLimit: 3
