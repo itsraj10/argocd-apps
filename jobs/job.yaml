@@ -17,7 +17,7 @@ spec:
         - |
           echo "Starting database migration..."
           sleep 5
-          echo "Database migration completed."
+          exit 1
 
       restartPolicy: Never
 
