@@ -16,6 +16,9 @@ spec:
         app: node-monitor
 
     spec:
+      nodeSelector:
+        kubernetes.io/os: linux
+
       containers:
       - name: node-monitor
         image: nginx:stable-alpine
