@@ -1,0 +1,49 @@
+# more fetures in single file
+
+apiVersion: batch/v1
+kind: CronJob
+
+metadata:
+  name: jobs123
+  namespace: jobs
+
+spec:
+  # Every 1 minutes (for learning)
+  schedule: "*/1 * * * *"
+
+  # Don't run another job if one is already running
+  concurrencyPolicy: Forbid
+
+  # Pause/Resume the CronJob
+  suspend: false
+
+  # Keep only last 3 successful Jobs
+  successfulJobsHistoryLimit: 3
+
+  # Keep only last 2 failed Jobs
+  failedJobsHistoryLimit: 2
+
+  jobTemplate:
+    spec:
+      backoffLimit: 3
+
+      template:
+        spec:
+          restartPolicy: Never
+
+          containers:
+          - name: backup
+            image: busybox:1.36
+
+            command:
+            - sh
+            - -c
+            - |
+              echo "===================================="
+              echo "Starting Database Backup..."
+              date
+              sleep 30
+              echo "Uploading backup to S3..."
+              sleep 10
+              echo "Backup Completed Successfully!"
+              echo "===================================="
