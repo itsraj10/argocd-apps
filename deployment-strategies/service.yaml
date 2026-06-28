@@ -7,7 +7,7 @@ metadata:
 
 spec:
   selector:
-    app: nginx
+    app: blue
 
   ports:
   - port: 80
