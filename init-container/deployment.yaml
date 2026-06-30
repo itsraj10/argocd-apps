@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: app
+  namespace: init-demo
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: app
+
+  template:
+    metadata:
+      labels:
+        app: app
+
+    spec:
+
+      initContainers:
+
+      - name: wait-for-mysql
+
+        image: busybox:1.36
+
+        command:
+
+        - sh
+
+        - -c
+
+        - |
+
+          echo "Waiting for MySQL..."
+
+          until nc -z mysql 3306
+
+          do
+            echo "MySQL not ready..."
+            sleep 3
+          done
+
+          echo "MySQL Ready"
+
+      containers:
+
+      - name: nginx
+
+        image: nginx:1.27
+
+        ports:
+
+        - containerPort: 80
