@@ -9,5 +9,5 @@ data:
   application.properties: |
     app.name=HRMS
     app.env=Production
-    db.host=mysql-primary
+    db.host=mysql-secondary
     db.port=3306
