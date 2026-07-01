@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+
+metadata:
+  name: hrms-config
+  namespace: hrms-env
+
+data:
+  APP_NAME: "HRMS"
+  APP_ENV: "Production"
+  DB_HOST: "mysql-primary"
+  DB_PORT: "3306"
