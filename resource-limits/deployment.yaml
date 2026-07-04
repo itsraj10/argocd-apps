@@ -19,16 +19,21 @@ spec:
 
     spec:
       containers:
-
       - name: hrms
-
-        image: nginx:1.27
-
-        ports:
-        - containerPort: 80
+        image: polinux/stress
 
         resources:
-
           requests:
-            cpu: "10m"
-            memory: "16Mi"
+            cpu: "500m"
+            memory: "256Mi"
+
+          limits:
+            cpu: "1"
+            memory: "512Mi"
+
+        command:
+        - stress
+
+        args:
+        - --cpu
+        - "2"
