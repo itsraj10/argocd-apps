@@ -20,9 +20,11 @@ spec:
     spec:
       containers:
       - name: hrms
+
         image: polinux/stress
 
         resources:
+
           requests:
             cpu: "500m"
             memory: "256Mi"
@@ -35,5 +37,9 @@ spec:
         - stress
 
         args:
-        - --cpu
-        - "2"
+        - --vm
+        - "1"
+        - --vm-bytes
+        - "700M"
+        - --vm-hang
+        - "1"
