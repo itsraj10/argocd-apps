@@ -26,12 +26,12 @@ spec:
         resources:
 
           requests:
-            cpu: "500m"
-            memory: "256Mi"
+            cpu: "10m"
+            memory: "8Mi"
 
           limits:
             cpu: "1"
-            memory: "512Mi"
+            memory: "10Mi"
 
         command:
         - stress
@@ -40,6 +40,6 @@ spec:
         - --vm
         - "1"
         - --vm-bytes
-        - "700M"
+        - "5M"
         - --vm-hang
         - "1"
