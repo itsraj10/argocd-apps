@@ -2,14 +2,14 @@ apiVersion: v1
 kind: Pod
 
 metadata:
-  name: tester
+  name: frontend
   namespace: hrms
   labels:
-    app: tester
+    app: frontend
 
 spec:
   containers:
-  - name: tester
+  - name: frontend
     image: nicolaka/netshoot
     command:
     - sleep
