@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+
+metadata:
+  name: backend
+  namespace: hrms
+  labels:
+    app: backend
+
+spec:
+  containers:
+  - name: backend
+    image: nginx
