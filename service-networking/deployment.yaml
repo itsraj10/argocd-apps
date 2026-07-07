@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: hrms-app
+  namespace: hrms
+
+spec:
+  replicas: 3
+
+  selector:
+    matchLabels:
+      app: hrms
+
+  template:
+    metadata:
+      labels:
+        app: hrms
+
+    spec:
+      containers:
+      - name: hrms
+
+        image: mendhak/http-https-echo:35
+
+        ports:
+        - containerPort: 8080
+
+        env:
+        - name: HTTP_PORT
+          value: "8080"
