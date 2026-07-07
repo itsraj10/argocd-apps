@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: hrms-app
+  namespace: image-security
+
+spec:
+  replicas: 3
+
+  selector:
+    matchLabels:
+      app: hrms
+
+  template:
+    metadata:
+      labels:
+        app: hrms
+
+    spec:
+      serviceAccountName: hrms-sa
+
+      containers:
+      - name: hrms
+
+        image: raj562k/hrms-backend:v1
+
+        imagePullPolicy: Always
+
+        ports:
+        - containerPort: 80
