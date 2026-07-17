@@ -29,10 +29,12 @@ spec:
         args:
         - |
           echo "HRMS Login Service Starting..."
-          sleep 2
+          sleep 10
 
           echo "Connecting to Database..."
-          sleep 2
+          sleep 10
 
           echo "Database Authentication Failed!"
+          sleep 10
+
           exit 1
