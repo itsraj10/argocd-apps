@@ -20,7 +20,6 @@ spec:
     spec:
       containers:
       - name: hrms
-
         image: busybox
 
         command:
@@ -29,8 +28,11 @@ spec:
 
         args:
         - |
-          while true
-          do
-            echo "[$(date)] HRMS Login Service Running..."
-            sleep 5
-          done
+          echo "HRMS Login Service Starting..."
+          sleep 2
+
+          echo "Connecting to Database..."
+          sleep 2
+
+          echo "Database Authentication Failed!"
+          exit 1
