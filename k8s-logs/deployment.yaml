@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: hrms-app
+  namespace: logs-demo
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: hrms
+
+  template:
+    metadata:
+      labels:
+        app: hrms
+
+    spec:
+      containers:
+      - name: hrms
+
+        image: busybox
+
+        command:
+        - sh
+        - -c
+
+        args:
+        - |
+          while true
+          do
+            echo "[$(date)] HRMS Login Service Running..."
+            sleep 5
+          done
